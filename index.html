@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRONSPINE — indie studio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0c0c0c;
+            background-image: radial-gradient(circle at 25% 0%, #1f2a2f 0%, #0a0c0e 100%);
+            font-family: 'Inter', sans-serif;
+            color: #dbdbdb;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .site-container {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        .glass-panel {
+            background: rgba(20, 25, 30, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(200, 180, 140, 0.2);
+            border-radius: 32px;
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(180, 140, 80, 0.15) inset;
+        }
+
+        .header {
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #b8863d30;
+        }
+
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.8rem;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #e0c9a5, #a36f3f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px #a36f3f60;
+            line-height: 1;
+        }
+
+        .indie-badge {
+            background: #1e1e1e;
+            border: 1px solid #7a683b;
+            border-radius: 60px;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 0 #3a2e1b;
+            color: #ebd7af;
+        }
+
+        .indie-badge i {
+            color: #cf9f5e;
+            margin-right: 8px;
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+
+        .intro-text {
+            flex: 1 1 300px;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff, #c0b09a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-left: 6px solid #b78b4a;
+            padding-left: 1rem;
+        }
+
+        .intro-text p {
+            font-size: 1.2rem;
+            color: #b7b7b7;
+            margin-bottom: 1rem;
+        }
+
+        .video-container {
+            flex: 1.2 1 400px;
+            min-width: 300px;
+        }
+
+        /* Стильный плейсхолдер под видео */
+        .video-placeholder {
+            background: linear-gradient(145deg, #1a1f24, #0f1215);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 2px solid #8a7a5a;
+            height: 100%;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 25px -10px black;
+        }
+
+        .video-placeholder i {
+            font-size: 5rem;
+            color: #ff0000;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-placeholder h3 {
+            color: #e0c9a5;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .watch-btn {
+            background: #b78b4a;
+            color: #0c0c0c;
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 4px solid #5a3f1f;
+            display: inline-block;
+            transition: all 0.1s ease;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .watch-btn:hover {
+            background: #d4a35c;
+            transform: translateY(-2px);
+            border-bottom-width: 6px;
+        }
+
+        .watch-btn i {
+            font-size: 1.2rem;
+            margin-right: 8px;
+            color: #0c0c0c;
+        }
+
+        .video-caption {
+            text-align: right;
+            margin-top: 0.5rem;
+            color: #8f8f8f;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 2.5rem 0 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title span {
+            background: #a9814b;
+            width: 60px;
+            height: 4px;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: #141c22e0;
+            border: 1px solid #4f4a3a;
+            border-radius: 32px;
+            padding: 2rem 1.5rem 1.8rem;
+            transition: transform 0.2s, border-color 0.2s;
+            box-shadow: 0 18px 25px -15px #000;
+            backdrop-filter: blur(6px);
+            display: flex;
+            flex-direction: column;
+            border-top: 3px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #ba9b6c;
+            border-top-color: #e4b87a;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: #cfa45b;
+            background: #232a31;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+            border: 1px solid #7a6a4b;
+        }
+
+        .project-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+            color: #ece3d0;
+        }
+
+        .project-sub {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b99762;
+            margin-bottom: 1rem;
+        }
+
+        .project-desc {
+            color: #bcbcbc;
+            margin-bottom: 1.3rem;
+            flex: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.8rem 0 1rem;
+        }
+
+        .tag {
+            background: #2f332c;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #dbcbb2;
+            border: 1px solid #5c513b;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px dashed #53503f;
+            padding-top: 1rem;
+        }
+
+        .status {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .status i {
+            color: #55b559;
+        }
+
+        .survivor-badge {
+            background: #51442c;
+            color: #ffeac2;
+            border-radius: 30px;
+            padding: 0.25rem 1rem;
+            font-size: 0.8rem;
+            display: inline-block;
+            border: 1px solid #ffbe6e;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .footer {
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Центрируем содержимое */
+            align-items: center;
+            margin-top: 3rem;
+            border-top: 1px solid #5c533d;
+        }
+
+        .copyright {
+            color: #7b715a;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .header {
+                flex-direction: column;
+                align-items: start;
+                gap: 1rem;
+            }
+            .logo h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-container">
+        <div class="header glass-panel">
+            <div class="logo">
+                <h1>IRONSPINE</h1>
+            </div>
+            <div class="indie-badge">
+                <i class="fas fa-gamepad"></i> indie studio
+            </div>
+        </div>
+
+        <div class="intro-grid glass-panel">
+            <div class="intro-text">
+                <h2>GRIT. TACTICS. <br> HANDCRAFTED CHAOS.</h2>
+                <p>Small indie studio focused on tactical shooters, dark ARPGs and everything in between. No publishers, no compromise — just building what we'd want to play ourselves.</p>
+            </div>
+            <div class="video-container">
+                <!-- 100% РАБОЧИЙ ВАРИАНТ - кнопка на YouTube -->
+                <div class="video-placeholder">
+                    <i class="fab fa-youtube"></i>
+                    <h3>OPERATION RESCUE — OFFICIAL TEASER</h3>
+                    <p style="color: #b7b7b7; margin-bottom: 0.5rem;">Click to watch the full trailer</p>
+                    <a href="https://youtu.be/hWldQuj8mEw" target="_blank" class="watch-btn">
+                        <i class="fab fa-youtube"></i> WATCH ON YOUTUBE
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <span></span> PROJECTS <span></span>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-cross"></i></div>
+                <h3>REQUIEM</h3>
+                <div class="project-sub">Action RPG</div>
+                <p class="project-desc">A souls-like ARPG set in a crumbling cathedral city. Wield relics of forgotten saints, fight massive corrupted creatures. Slow, deliberate combat with a focus on storytelling through environments.</p>
+                <div class="project-tags">
+                    <span class="tag">souls-like</span>
+                    <span class="tag">dark fantasy</span>
+                    <span class="tag">local co-op</span>
+                </div>
+                <div class="project-footer">
+                    <span class="status"><i class="fas fa-circle"></i> vertical slice 2025</span>
+                    <i class="fas fa-dragon" style="color: #bb8f56;"></i>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-gun"></i></div>
+                <h3>OPERATION RESCUE</h3>
+                <div class="project-sub">Tactical Shooter</div>
+                <p class="project-desc">Squad-based tactical shooter. One shot - one kill. Plan breaches, use environmental destruction, command AI teammates. Inspired by classic SWAT and modern conflicts. No HUD, all instinct.</p>
+                <div class="project-tags">
+                    <span class="tag">realistic</span>
+                    <span class="tag">tactical</span>
+                    <span class="tag">co-op</span>
+                </div>
+                <div class="project-footer">
+                    <span class="status"><i class="fas fa-circle"></i> playtest soon</span>
+                    <i class="fas fa-crosshairs" style="color: #bb8f56;"></i>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>HORDE RUSH <span class="survivor-badge"><i class="fas fa-bomb"></i> survivor-like</span></h3>
+                <div class="project-sub">Mobile</div>
+                <p class="project-desc">Fast & chaotic bullet heaven for mobile. Choose a survivor, collect relics, survive endless night. One-thumb control, 15-minute runs, rogue-lite upgrades. Perfect for subway battles.</p>
+                <div class="project-tags">
+                    <span class="tag">rogue-lite</span>
+                    <span class="tag">mobile</span>
+                    <span class="tag">offline</span>
+                </div>
+                <div class="project-footer">
+                    <span class="status"><i class="fas fa-circle"></i> soft launch Q4</span>
+                    <i class="fas fa-ghost" style="color: #bb8f56;"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- ФУТЕР ТОЛЬКО С КОПИРАЙТОМ (БЕЗ ИКОНОК) -->
+        <div class="footer glass-panel">
+            <div class="copyright">
+                <i class="fas fa-crown" style="color: #b68f55;"></i> IRONSPINE · indie studio
+            </div>
+        </div>
+    </div>
+</body>
+</html>
